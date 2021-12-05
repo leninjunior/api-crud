@@ -17,7 +17,7 @@ public class UsuarioService {
 
     public void salvar(Usuario usuario){
 
-        usuarioRepository.save(usuario);
+            usuarioRepository.save(usuario);
 
     }
 
