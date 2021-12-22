@@ -5,12 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import br.com.springboot.api_crud.model.Usuario;
 import br.com.springboot.api_crud.service.UsuarioService;
@@ -28,6 +23,7 @@ public class GreetingsController {
      */
 		@Autowired
 		private UsuarioService usuarioService;
+
 		
 		
 		
@@ -42,7 +38,17 @@ public class GreetingsController {
     @GetMapping("/listartodos")
     public  ResponseEntity<List<Usuario>> buscarTodos(){
        List<Usuario> usuarios =  usuarioService.listarTodos();
-		
-       return new ResponseEntity<List<Usuario>>(usuarios, HttpStatus.OK);
+	  return new ResponseEntity<List<Usuario>>(usuarios, HttpStatus.OK);
     }
+
+    @PostMapping("/salvar")
+    @ResponseBody  /*descrição do corpo*/
+    public ResponseEntity<Usuario> salvarUser(@RequestBody Usuario usuario){ /* REQUESTBODY = recebe os dados e seta*/
+
+      Usuario user1 = usuarioService.salvarUser(usuario);
+
+        return new   ResponseEntity<Usuario>(user1, HttpStatus.CREATED);
+    }
+
+
 }

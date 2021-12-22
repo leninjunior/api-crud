@@ -15,10 +15,11 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
 
-    public void salvar(Usuario usuario){
+    public Usuario salvarUser(Usuario usuario){
 
             usuarioRepository.save(usuario);
 
+        return usuario;
     }
 
      public List<Usuario> listarTodos(){
