@@ -10,4 +10,5 @@ import br.com.springboot.api_crud.model.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 
 
+
 }
