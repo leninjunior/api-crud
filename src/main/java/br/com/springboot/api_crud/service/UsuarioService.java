@@ -22,6 +22,12 @@ public class UsuarioService {
 
         return usuario;
     }
+    public Usuario atualizarUsuario(Usuario usuario){
+
+        usuarioRepository.saveAndFlush(usuario);
+
+        return usuario;
+    }
 
     public void deleteUsuario(Long id){
 

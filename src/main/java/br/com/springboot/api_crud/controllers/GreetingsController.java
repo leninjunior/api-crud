@@ -47,6 +47,15 @@ public class GreetingsController {
         return new   ResponseEntity<Usuario>(user1, HttpStatus.CREATED);
     }
 
+    @PutMapping("/atualizar")
+    @ResponseBody  /*descrição do corpo*/
+    public ResponseEntity<Usuario> atualizarUsuario(@RequestBody Usuario usuario){ /* REQUESTBODY = recebe os dados e seta*/
+
+        Usuario user1 = usuarioService.atualizarUsuario(usuario);
+
+        return new   ResponseEntity<Usuario>(user1, HttpStatus.CREATED);
+    }
+
     @DeleteMapping("/delete")
     @ResponseBody  /*descrição do corpo*/
     public ResponseEntity<String> deleteUsuario(@RequestParam Long id){ /* receber parâmetros */
