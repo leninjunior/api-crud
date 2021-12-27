@@ -1,6 +1,7 @@
 package br.com.springboot.api_crud.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
 
-    public Usuario salvarUser(Usuario usuario){
+    public Usuario salvarUsuario(Usuario usuario){
 
             usuarioRepository.save(usuario);
 
@@ -27,6 +28,13 @@ public class UsuarioService {
         usuarioRepository.deleteById(id);
 
     }
+
+
+        public Usuario buscarUsuario(Long id) {
+         return this.usuarioRepository.findById(id).get();
+     }
+
+
 
 
      public List<Usuario> listarTodos(){

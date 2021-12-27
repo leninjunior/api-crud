@@ -1,7 +1,9 @@
 package br.com.springboot.api_crud.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
+import br.com.springboot.api_crud.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,17 +26,12 @@ public class GreetingsController {
 		@Autowired
 		private UsuarioService usuarioService;
 
+        @Autowired
+        private UsuarioRepository usuarioRepository;
 		
 		
-		
-		
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    @ResponseStatus(HttpStatus.OK)
-    public String greetingText(@PathVariable String name) {
-        return "Hello " + name + "!";
-    }
-    
-    
+
+
     @GetMapping("/listartodos")
     public  ResponseEntity<List<Usuario>> buscarTodos(){
        List<Usuario> usuarios =  usuarioService.listarTodos();
@@ -43,20 +40,30 @@ public class GreetingsController {
 
     @PostMapping("/salvar")
     @ResponseBody  /*descrição do corpo*/
-    public ResponseEntity<Usuario> salvarUser(@RequestBody Usuario usuario){ /* REQUESTBODY = recebe os dados e seta*/
+    public ResponseEntity<Usuario> salvarUsuario(@RequestBody Usuario usuario){ /* REQUESTBODY = recebe os dados e seta*/
 
-      Usuario user1 = usuarioService.salvarUser(usuario);
+      Usuario user1 = usuarioService.salvarUsuario(usuario);
 
         return new   ResponseEntity<Usuario>(user1, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/delete")
     @ResponseBody  /*descrição do corpo*/
-    public ResponseEntity<String> deleteUser(@RequestParam Long id){ /* receber parâmetros */
+    public ResponseEntity<String> deleteUsuario(@RequestParam Long id){ /* receber parâmetros */
 
          usuarioService.deleteUsuario(id);
 
         return new   ResponseEntity<String>("Usuario deletado com sucesso", HttpStatus.OK);
+    }
+
+    @GetMapping(name = "/usuarioid")
+    @ResponseBody
+    public ResponseEntity<Usuario> buscarUsuarioId(@RequestParam (name = "userid") Long userid){
+
+
+          Usuario usuario = usuarioService.buscarUsuario(userid);
+
+   return new   ResponseEntity<Usuario>(usuario, HttpStatus.OK);
     }
 
 
