@@ -1,11 +1,8 @@
 package br.com.springboot.api_crud.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.springboot.api_crud.model.Usuario;
@@ -31,6 +28,8 @@ public class UsuarioService {
 
         return usuario;
     }
+
+
 
     public void deleteUsuario(Long id){
 
