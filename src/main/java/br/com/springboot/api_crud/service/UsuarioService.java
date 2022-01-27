@@ -28,9 +28,6 @@ public class UsuarioService {
 
         return usuario;
     }
-
-
-
     public void deleteUsuario(Long id){
 
         usuarioRepository.deleteById(id);
@@ -49,6 +46,11 @@ public class UsuarioService {
         return usuarioRepository.findAll();
      }
 
-}
+
+    public List<Usuario> buscarPorNome(String name){
+        return usuarioRepository.buscarPorNome(name);
+        }
+
+        }
 
 
