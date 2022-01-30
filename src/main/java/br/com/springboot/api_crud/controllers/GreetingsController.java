@@ -17,6 +17,7 @@ import br.com.springboot.api_crud.service.UsuarioService;
  * A sample greetings controller to return greeting text
  */
 @RestController
+@RequestMapping(value ="/users")
 public class GreetingsController {
     /**
      *
@@ -33,13 +34,14 @@ public class GreetingsController {
 		
 
 
-    @GetMapping("listartodos")
+
+    @GetMapping("/listartodos")
     public  ResponseEntity<List<Usuario>> buscarTodos(){
        List<Usuario> usuarios =  usuarioService.listarTodos();
 	  return new ResponseEntity<List<Usuario>>(usuarios, HttpStatus.OK);
     }
 
-    @PostMapping("salvar")
+    @PostMapping("/salvar")
     @ResponseBody  /*descrição do corpo*/
     public ResponseEntity<Usuario> salvarUsuario(@RequestBody Usuario usuario){ /* REQUESTBODY = recebe os dados e seta*/
 
@@ -48,7 +50,7 @@ public class GreetingsController {
         return new   ResponseEntity<Usuario>(user1, HttpStatus.CREATED);
     }
 
-    @PutMapping("atualizar")
+    @PutMapping("/atualizar")
     @ResponseBody  /*descrição do corpo*/
     public ResponseEntity<?> atualizarUsuario(@RequestBody Usuario usuario){ /* REQUESTBODY = recebe os dados e seta*/
 
@@ -60,7 +62,7 @@ public class GreetingsController {
           return new   ResponseEntity<Usuario>(user1, HttpStatus.OK);
     }
 
-    @DeleteMapping("delete")
+    @DeleteMapping("/delete")
     @ResponseBody  /*descrição do corpo*/
     public ResponseEntity<String> deleteUsuario(@RequestParam Long id){ /* receber parâmetros */
 
@@ -71,22 +73,21 @@ public class GreetingsController {
 
 
 
-    @GetMapping(name = "usuarioId")
+    @GetMapping(name = "/usuarioId")
     @ResponseBody
     public ResponseEntity<Usuario> buscarUsuarioId(@RequestParam (name = "userid") Long userid){
 
+            Usuario usuario = usuarioService.buscarUsuario(userid);
+            return new   ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 
-          Usuario usuario = usuarioService.buscarUsuario(userid);
-
-   return new   ResponseEntity<Usuario>(usuario, HttpStatus.OK);
-    }
+        }
 
 
-    @GetMapping(value = "buscarPorNome")
+    @GetMapping(value = "/buscarPorNome")
     @ResponseBody
     public ResponseEntity<List<Usuario>>buscarPorNome(@RequestParam(name = "name") String name){
 
-        //List<Usuario> usuario = usuarioRepository.buscarPorNome(name.trim().toUpperCase());
+
 
         List<Usuario> usuario = usuarioService.buscarPorNome(name.trim().toUpperCase());
 

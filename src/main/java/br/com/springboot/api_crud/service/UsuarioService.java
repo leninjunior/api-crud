@@ -33,20 +33,12 @@ public class UsuarioService {
         usuarioRepository.deleteById(id);
 
     }
-
-
-        public Usuario buscarUsuario(Long id) {
+    public Usuario buscarUsuario(Long id) {
          return this.usuarioRepository.findById(id).get();
      }
-
-
-
-
      public List<Usuario> listarTodos(){
         return usuarioRepository.findAll();
      }
-
-
     public List<Usuario> buscarPorNome(String name){
         return usuarioRepository.buscarPorNome(name);
         }
