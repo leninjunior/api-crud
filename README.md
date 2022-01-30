@@ -44,11 +44,6 @@ cd backend
 ./mvnw spring-boot:run
 ```
 
-```bash
-# clonar repositório
-git clone https://github.com/leninjunior/api-crud
-
-
 
 # Autor
 
