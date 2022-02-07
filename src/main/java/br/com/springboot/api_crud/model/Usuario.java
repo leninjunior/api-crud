@@ -16,6 +16,8 @@ public class Usuario implements Serializable {
 
     private String nome;
 
+    private String email;
+
     private Integer idade;
 
 
@@ -29,6 +31,14 @@ public class Usuario implements Serializable {
 
     public String getNome() {
         return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setNome(String nome) {

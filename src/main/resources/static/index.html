@@ -1,57 +1,48 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Projetinho da noite</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Usuários</title>
 </head>
+
 <body>
+<div class="container">
 
-    <h1>REST API CRUD COMPLETO</h1>
+    <h1>Cadastro de Usuários </h1>
 
+    <hr>
 
-    <form action="" id="formCadastroUser">
-        <div class="mb-3">
-            <label for="id" class="form-label">ID: </label>
-            <input type="text" class="form-control" id="id" readonly>
-        </div>
-        <div class="mb-3">
-            <label for="nome" class="form-label">Nome: </label>
-            <input type="text" class="form-control" id="nome" placeholder="Digite seu nome: ">
-        </div>
-        <div class="mb-3">
-            <label for="idade" class="form-label">Idade: </label>
-            <input type="number" class="form-control" id="idade">
-        </div>
-        <button type="submit" class="btn btn-primary mb-3" onclick="salvarUsuario()">Salvar</button>
-        <button type="reset" class="btn btn-secondary mb-3">Novo</button>
-        <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalPesquisar">Pesquisar</button>
-    </form>
+    <a href="cadastrousuario.html" target="_blank"class="btn btn-success " data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cadastro de novo usuário">Novo Cadastro</a>
+    <a href="visualizarcadastros.html" class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Visualiza e edita todos os usuários cadastrados">Visualizar Todos</a>
+
+</div>
+
+<footer class="text-center text-white fixed-bottom">
 
 
+    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        Codigo-Fonte no   <a class="text-dark" href="https://github.com/leninjunior/api-crud">GitHub</a>  - Criado Por:
+        <a class="text-dark" href="https://www.linkedin.com/in/leninjunior/">Lenin Junior</a>
+
+    </div>
+</footer>
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-
-         function salvarUsuario() {
-            var id = $("#id").val();
-            var nome = $("#nome").val();
-            var idade = $("#idade").val();
-
-    alert(nome);
-
-  }
-
-    </script>
 
 </body>
+
 </html>
